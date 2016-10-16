@@ -1,5 +1,4 @@
 <?php
-
 if ( ! current_user_can( 'manage_options' ) ) {
     show_admin_bar( false );
 }
@@ -12,35 +11,36 @@ function annointed_admin_bar_remove() {
 }
 
 add_action('wp_before_admin_bar_render', 'annointed_admin_bar_remove', 0);
-//show_admin_bar( true );
-	automatic_feed_links();	
-// Load jQuery
-	if ( !is_admin() ) {
-	   wp_deregister_script('jquery');
-	   /* Remove admin bar */
+add_theme_support( 'automatic-feed-links' );	
 
+function wpdocs_dequeue_script() {
+if ( !is_admin() ) {
+	   wp_deregister_script('jquery');
 	}
+}
+add_action( 'wp_print_scripts', 'wpdocs_dequeue_script', 100 );	
+
 	// Clean up the <head>
-	function removeHeadLinks() {
-    	remove_action('wp_head', 'rsd_link');
-    	remove_action('wp_head', 'wlwmanifest_link');
-    }
-    add_action('init', 'removeHeadLinks');
-    remove_action('wp_head', 'wp_generator');
+function removeHeadLinks() {
+    remove_action('wp_head', 'rsd_link');
+    remove_action('wp_head', 'wlwmanifest_link');
+}
+add_action('init', 'removeHeadLinks');
+remove_action('wp_head', 'wp_generator');
     
- // This theme uses wp_nav_menu() in one location.
-     //Register menu
-    function register_my_menus() {
-      register_nav_menus(
-        array(
-            'header-menu' => __( 'Header Menu' ),
-            'extra-menu' => __( 'Extra Menu' ),
-            'quick-link-menu' => __( 'Quick Link' ),
-             'sidebar-menu' => __( 'Sidebar' )
-        )
-      );
-    }
-    add_action( 'init', 'register_my_menus' );
+// This theme uses wp_nav_menu() in one location.
+ //Register menu
+function register_my_menus() {
+  register_nav_menus(
+    array(
+        'header-menu' => __( 'Header Menu' ),
+        'extra-menu' => __( 'Extra Menu' ),
+        'quick-link-menu' => __( 'Quick Link' ),
+         'sidebar-menu' => __( 'Sidebar' )
+    )
+  );
+}
+add_action( 'init', 'register_my_menus' );
 
 if (function_exists('register_sidebar'))
 {
@@ -85,71 +85,32 @@ if (function_exists('register_sidebar'))
 		'name' => 'Footer 5'  
     ));
 }
-add_image_size('thumb_760x380',760,380,array( 'center', 'top' ));//news
-add_image_size('thumb_283x284',283,283,array( 'center', 'top' ));//news
+add_image_size('thumb_258x194',258,194,array( 'center', 'top' ));
 
-function the_excerpt_max_charlength($charlength) {
-	$excerpt = get_the_excerpt();
-	$charlength++;
 
-	if ( mb_strlen( $excerpt ) > $charlength ) {
-		$subex = mb_substr( $excerpt, 0, $charlength - 5 );
-		$exwords = explode( ' ', $subex );
-		$excut = - ( mb_strlen( $exwords[ count( $exwords ) - 1 ] ) );
-		if ( $excut < 0 ) {
-			echo mb_substr( $subex, 0, $excut );
-		} else {
-			echo $subex;
-		}
-		echo '[...]';
-	} else {
-		echo $excerpt;
-	}
+function substrwords($text, $maxchar, $end='...') {
+    if (strlen($text) > $maxchar || $text == '') {
+        $words = preg_split('/\s/', $text);      
+        $output = '';
+        $i      = 0;
+        while (1) {
+            $length = strlen($output)+strlen($words[$i]);
+            if ($length > $maxchar) {
+                break;
+            } 
+            else {
+                $output .= " " . $words[$i];
+                ++$i;
+            }
+        }
+        $output .= $end;
+    } 
+    else {
+        $output = $text;
+    }
+    return $output;
 }
 
-
-
-function send_email(){  
-if(isset($_POST['name'])){
-    
-    $name = $_POST['name'];
-    $phone = $_POST['phone'];
-    $email = $_POST['email'];
-    $number = $_POST['number'];
-    $date = $_POST['date'];
-
-    $to = get_settings('admin_email');
-    $subject = '[Allure Japan] booking';
-    $body = 
-    'Name: '.$name.'<br />'. 
-    'Phone: '.$phone . '<br />' . 
-    'Email: '.$email . '<br />' ;
-    'Number: '.$number . ' persons.<br />' ;
-    'Date: '.$date . '.<br />' ;
-    $headers = array('Content-Type: text/html; charset=UTF-8');
-
-    wp_mail( $to, $subject, $body, $headers );
-    
-    $body2 = "Chào bạn ".$name.' !<br /><br />Bạn đã gửi yêu cầu đặt hẹn tới Allure Japan, chúng tôi sẽ liên lạc với bạn sớm nhất.<br /><br />Hotline: 0935 367 760';
-     wp_mail( $email , '[Allure Japan] booking successful',  $body2 , $headers );
-}
-echo $out;
-die();  
-}  
-add_action('wp_ajax_send_email', 'send_email'); 
-add_action('wp_ajax_nopriv_send_email', 'send_email');
-
-
- if(ICL_LANGUAGE_CODE == 'vi'){ 
-        $seemore = 'Xem thêm';
-        $booking = 'Book now';
-     }else if(ICL_LANGUAGE_CODE == 'en'){
-        $seemore = 'See more';
-        $booking = 'Book now';
-    }else{  
-        $seemore = '続きを見る';
-        $booking = '予約';
-} 
 
 // Clean the up the image from wp_get_attachment_image()
 add_filter( 'wp_get_attachment_image_attributes', function( $attr )
@@ -173,45 +134,55 @@ add_filter( 'wp_calculate_image_srcset', '__return_false', PHP_INT_MAX );
 // Remove the reponsive stuff from the content
 remove_filter( 'the_content', 'wp_make_content_images_responsive' );
 
-//Khởi tạo function cho shortcode
-function booking_shortcode() {
-      
-       $out = '<div class="qa-booking-form form-mini">
-                                <div class="qa-tabs-box">
-                                    <div id="mainTabNav" class="nav">
-                                        <p class="booking-title"><button class="btn-booking btn-style btn">ĐẶT HẸN CHĂM SÓC DA</button></p>                                       
-                                            <div class="divBlock">
-                                                <p>Chỉ cần điền thông tin và chọn thời gian dưới đây, Alure sẽ liên hệ lại ngay nhé!</p>
-                                              <form id="booking-form" method="post">
-                                                 <div class="row">
-                                                     <div class="col-md-2 col-xs-6 col-sm-4">
-                                                          <input required="" type="text" name="username" placeholder="Họ tên" id="username">
-                                                     </div>
-                                                     <div class="col-md-2 col-xs-6 col-sm-4">
-                                                           <input required="" type="text" name="phone" placeholder="Số điện thoại" id="phone">
-                                                     </div>                                                     
-                                                     <div class="col-md-2 col-xs-6 col-sm-4">
-                                                        <input required="" type="email" name="email" placeholder="Email" id="email">
-                                                     </div>                                                     
-                                                     <div class="col-md-2 col-xs-6 col-sm-4">
-                                                     <input required="" placeholder="Thời gian" name="date-s" id="date-search" class="span2" size="16" type="text" value="" readonly="" data-date="8-4-2016">
-                                                     </div>
-                                                     <div class="col-md-2 col-xs-6 col-sm-4">
-                                                         <input required="" type="number" name="number" placeholder="Số người" id="number">
-                                                     </div>
-                                                     <div class="col-md-2 col-xs-6 col-sm-4">
-                                                            <input type="submit" name="submit" value="Gửi" id="submit-button">
-                                                     </div>
-                                                 </div>
-                                              </form>
-                                                
-                                        </div>
 
-                                    </div>
-                                </div>
-                            </div>';
-      echo $out; 
+function getAllRoad($confirm = 1) {
+	global $post;
+    $data   =   array();
+   
+    $args   =   array(
+                    'post_type' => 'road',
+                    'post_status' =>  'publish',										
+                    'posts_per_page' => -1,
+                    'order' => 'DESC', 	
+                    'orderby' => 'post_date',
+					'meta_query' => array(
+					array(
+						'key'     => 'wpcf-confirm',
+						'value'   => $confirm,
+						'compare' => '=',
+						'type'    => 'NUMERIC'
+					),
+			)
+    );
+    query_posts( $args );
+    
+    while ( have_posts() ) : the_post();
+	if ( has_post_thumbnail() ) {
+		$thumb_id = get_post_thumbnail_id();
+		$thumb_url = wp_get_attachment_image_src($thumb_id,'thumb_258x194', true);
+		$image	=	$thumb_url[0];
+	} else {
+		$image	=	"http://timduongtat.com/wp-content/themes/timduongtat/images/nophoto.png";
+	}
+	
+	$warming	=	'<ul><li>'. types_render_field('issafe', array('separator'=>'</li><li>')) .'</li></ul>';
+	//print_r(($custom_fields['wpcf-issafe']));
+	
+	
+	
+   $custom_fields = get_post_custom($post->ID);
+   $data[$post->ID] =  array(
+		'id'	=>	$post->ID,
+		'title' =>  get_the_title(),
+		'note'  =>  $post->post_content,
+		'url'   =>  get_permalink(),
+		'geoJson'   =>  json_decode($custom_fields['wpcf-geojson'][0]),
+		'image'		=>	$image,
+		'author'    =>  get_the_author(),
+		'warming'	=>	$warming
+	);
+    
+    endwhile;
+    wp_reset_query();
+    return $data;
 }
-
-add_shortcode( 'booking', 'booking_shortcode' );
-
