@@ -1,4 +1,4 @@
-    /*   
+        /*   
 Theme Name: Do Trung
 Theme URI: http://gucafe.com
 Description: HEHE
@@ -205,7 +205,6 @@ Version: 1
         display: block;
         text-align: center;
         margin: 0 auto;
-       
     }
     /**
  * 2.0 - Genericons
@@ -720,691 +719,658 @@ Version: 1
     .tdt-header-title {
         color: #525d7d;
         font-size: 30px;
-		
     }
-	.tdt-header-container{
-		position:relative;
-	}
-	.logo{
-		
-	}
-	.logo img{
-		width:400px;
-		display:block;
-		text-align:center;		
-		margin: 0 auto;
-	}
     
-    .tdt-site-des {
+    .tdt-header-container {
+        position: relative;
+    }
+    
+    .logo {
+            margin: 25px auto 25px auto;
+        width:50%;
+    }
+    
+    .logo img.logo-img {
+        width: 90px;
+        margin: 0 auto;
+        height: 90px;
+        -webkit-animation: spin 4s linear infinite;
+        -moz-animation: spin 4s linear infinite;
+        animation: spin 4s linear infinite;
+        display: block;
+        text-align: center;
+    }
+    @-moz-keyframes spin {
+        100% {
+            -moz-transform: rotate(360deg);
+        }
+    }
+    
+    @-webkit-keyframes spin {
+        100% {
+            -webkit-transform: rotate(360deg);
+        }
+    }
+    
+    @keyframes spin {
+        100% {
+            -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+        }
+}
+        .tdt-site-des {
             text-align: center;
-    color: #4e4e4e;
-    font-size: 14px;
-    font-weight: normal;
-    }
-    
-    .tdt-search-box {
-        background: #fff;
-        border: 2px solid #d0503f;
-        position: relative;
-        height: 58px;
-        margin-top: 41px;
-    }
-    
-    .tdt-search-box > [type=text],
-    .tdt-search-box > [type=search] {
-        border: none;
-        background: transparent;
-        height: 100%;
-        padding: 0 50px 0 20px;
-        font-size: 19px;
-    }
-    
-    .tdt-search-box > button {
-        position: absolute;
-        width: 28px;
-        height: 28px;
-        top: 0;
-        right: 0;
-        background-color: transparent;
-        background-image: url(images/search.png);
-        top: 12px;
-        right: 8px;
-    }
-    
-    .eg-container {
-        margin-top: 30px;
-        margin-bottom: 40px;
-    }
-    
-    .menu-road a {
-        font-size: 16px;
-        color: #484848;
-        border: none;
-        outline: none;
-        padding-left: 25px;
-        -webkit-appearance: none;
-        cursor: pointer;
-    }
-    
-    .menu-road {
-        margin-bottom: 30px;
-    }
-    .card-listing{
-		min-height: 300px;
-		position:relative;
-	}
-	.card-listing .loading{
-		position:absolute;
-		top:0;
-		left:50%;
-		margin-left:-200px;
-	}
-    .card-listing .card-content {
-        background: rgba(197,32,43,0.9);
-    color: #fff;
-    padding: 10px 15px 15px;
-    }
-    .card-listing:after {
-		 visibility: hidden;
-		 display: block;
-		 font-size: 0;
-		 content: " ";
-		 clear: both;
-		 height: 0;
-     }
-    .card-image img {
+            color: #4e4e4e;
+            font-size: 14px;
+            font-weight: normal;
+        }
+        .tdt-search-box {
+            background: #fff;
+            border: 2px solid #d0503f;
+            position: relative;
+            height: 58px;
+            margin-top: 41px;
+        }
+        .tdt-search-box > [type=text],
+        .tdt-search-box > [type=search] {
+            border: none;
+            background: transparent;
+            height: 100%;
+            padding: 0 50px 0 20px;
+            font-size: 19px;
+        }
+        .tdt-search-box > button {
+            position: absolute;
+            width: 28px;
+            height: 28px;
+            top: 0;
+            right: 0;
+            background-color: transparent;
+            background-image: url(images/search.png);
+            top: 12px;
+            right: 8px;
+        }
+        .eg-container {
+            margin-top: 30px;
+            margin-bottom: 40px;
+        }
+        .menu-road a {
+            font-size: 16px;
+            color: #484848;
+            border: none;
+            outline: none;
+            padding-left: 25px;
+            -webkit-appearance: none;
+            cursor: pointer;
+        }
+        .menu-road {
+            margin-bottom: 30px;
+        }
+        .card-listing {
+            min-height: 300px;
+            position: relative;
+        }
+        .card-listing .loading {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            margin-left: -200px;
+        }
+        .card-listing .card-content {
+            background: rgba(197, 32, 43, 0.9);
+            color: #fff;
+            padding: 10px 15px 15px;
+        }
+        .card-listing:after {
+            visibility: hidden;
+            display: block;
+            font-size: 0;
+            content: " ";
+            clear: both;
+            height: 0;
+        }
+        .card-image img {
             border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
-    background: rgba(0, 0, 0, 0.075) center no-repeat;
-    background-size: cover;
-    position: relative;
-    text-align: center;
-    margin: 0 auto;
-    display: block;
+            border-top-right-radius: 8px;
+            background: rgba(0, 0, 0, 0.075) center no-repeat;
+            background-size: cover;
+            position: relative;
+            text-align: center;
+            margin: 0 auto;
+            display: block;
             min-width: 100%;
-    }
-    
-    .card-widget.card-widget {
-        margin-bottom: 30px;
-        transition: box-shadow 0.1s ease-out, opacity 0.3s ease-in-out;
-        border: 1px solid rgba(0, 0, 0, 0.075);
-        box-shadow: none;
-        border-radius: 8px;
-    }
-    
-    .card-listing .card-title a {
-       color: #fff;
-    font-size: 14px;
-    /* line-height: 44px; */
-    font-weight: 400;
-    }
-    
-    .card-listing .card-title .fa::before {
-        font-size: 20px;
-        color: #C12D2D;
-    }
-    
-    .card .pin,
-    .card .pin__icon,
-    .card-listing .card-rating.rating,
-    .widget_listing_sidebar_categories .category-icon {
-        color: #ff4d5a;
-        background-color: #fff;
-        border-color: #ff4d5a;
-    }
-    
-    .rating {
-        border: 2px solid currentColor;
-        border-radius: 50%;
-        font-size: 13px;
-        font-weight: 600;
-        height: 30px;
-        padding-top: 3px;
-        text-align: center;
-        width: 30px;
-    }
-    
-    .card-rating {
-        color: #ff4d55;
-        float: left;
-        margin-right: 10px;
-    }
-    
-    .card-rating,
-    .card-address {
-        margin-bottom: 10px;
-        margin-top: 10px;
-    }
-    
-    .tdt-cp {
-        position: fixed;
-        right: 10px;
-        bottom: 10px;
-        z-index: 9;
-    }
-    
-    .tdt-cp-box {
-        position: relative;
-        background-image: url(images/box.png);
-        width: 294px;
-        height: 273px;
-        padding: 47px 32px 0 49px;
-        color: white;
-        font-size: 18px;
-        transform-origin: right bottom;
-        transition: all .5s ease;
-    }
-    
-    .tdt-cp-expander.off {
-        transform: scale(0, 0);
-        transition: all .5s ease;
-        position: absolute;
-        bottom: 0;
-        right: 0;
-    }
-    
-    .tdt-cp-expander {
-        padding: 10px 20px;
-        border: 1px solid #CE9F5A;
-        background-color: #2F4A84;
-        color: #FFFFFF;
-        max-width: 500px;
-        max-height: 300px;
-        border: none;
-        transition: all .5s ease;
-        cursor: pointer;
-        font-size: 18px;
-        border-radius: 10px;
-        transform-origin: right bottom;
-        text-align: center;
-    }
-    
-    .tdt-cp-go a {
-        display: inline-block;
-        color: #c5202b;
-        padding: 4px 14px;
-        background-color: white;
-        border-radius: 10px;
-        font-weight: bold;
-        -webkit-box-shadow: 0px 0px 20px 4px rgba(0, 0, 0, 0.38);
-        -moz-box-shadow: 0px 0px 20px 4px rgba(0, 0, 0, 0.38);
-        box-shadow: 0px 0px 20px 4px rgba(0, 0, 0, 0.38);
-    }
-    
-    .tdt-cp-close {
-        position: absolute;
-        top: 0px;
-        right: 12px;
-        background-image: url(images/close.png);
-        width: 23px;
-        height: 23px;
-        cursor: pointer;
-    }
-    
-    .tdt-cp-go {
-        text-align: center;
-        margin-top: 15px;
-    }
-    /* POPUP */
-    
-    .overllay {
-        visibility: hidden;
-        z-index: 99;
-        position: fixed;
-        top: 0;
-        bottom: 0;
-        right: 0;
-        left: 0;
-        background: rgba(0, 0, 0, 0.9);
-    }
-    
-    .popup-wrapper {
-        visibility: hidden;
-        position: fixed;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        background: #fff;
-        padding: 0;
-        width: 100%;
-        margin: 0;
-    }
-    
-    .navbar-top {
-        padding: 15px 0;
-        position: relative;
-    }
-    
-    .navbar-top .back-btn {
-        left: 15px;
-    }
-    
-    .navbar-top .close-btn {
-        right: 15px;
-    }
-    
-    .navbar-top .btn-navbar {
-        position: absolute;
-        margin-top: -14px;
-        top: 50%;
-        padding: 0;
-        position: absolute;
-        background: none;
-        /* left: 0; */
-    }
-    
-    .navbar-top .btn-navbar .fa::before {
-        font-size: 27px;
-        color: #fff;
-    }
-    
-    .popup__top {
-        background: #c5202b;
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        z-index: 999;
-        width: 100%;
-    }
-    
-    .tab-bar {
-        background: #c5202b;
-        display: none;
-    }
-    
-    .tab-bar li {
-        list-style: none;
-        float: left;
-        width: 50%;
-        text-align: center;
-    }
-    
-    .tab-bar li a {
-        padding: 15px 0;
-        color: #fff;
-        font-size: 15px;
-        font-weight: 700;
-        border-bottom: transparent;
-    }
-    
-    .tab-bar li a.active {
-        color:#000;    background: #fff;
-    }
-    
-    .popup-wrapper.map {
-        /*
+        }
+        .card-widget.card-widget {
+            margin-bottom: 30px;
+            transition: box-shadow 0.1s ease-out, opacity 0.3s ease-in-out;
+            border: 1px solid rgba(0, 0, 0, 0.075);
+            box-shadow: none;
+            border-radius: 8px;
+        }
+        .card-listing .card-title a {
+            color: #fff;
+            font-size: 14px;
+            /* line-height: 44px; */
+            font-weight: 400;
+        }
+        .card-listing .card-title .fa::before {
+            font-size: 20px;
+            color: #C12D2D;
+        }
+        .card .pin,
+        .card .pin__icon,
+        .card-listing .card-rating.rating,
+        .widget_listing_sidebar_categories .category-icon {
+            color: #ff4d5a;
+            background-color: #fff;
+            border-color: #ff4d5a;
+        }
+        .rating {
+            border: 2px solid currentColor;
+            border-radius: 50%;
+            font-size: 13px;
+            font-weight: 600;
+            height: 30px;
+            padding-top: 3px;
+            text-align: center;
+            width: 30px;
+        }
+        .card-rating {
+            color: #ff4d55;
+            float: left;
+            margin-right: 10px;
+        }
+        .card-rating,
+        .card-address {
+            margin-bottom: 10px;
+            margin-top: 10px;
+        }
+        .tdt-cp {
+            position: fixed;
+            right: 10px;
+            bottom: 10px;
+            z-index: 9;
+        }
+        .tdt-cp-box {
+            position: relative;
+            background-image: url(images/box.png);
+            width: 294px;
+            height: 273px;
+            padding: 47px 32px 0 49px;
+            color: white;
+            font-size: 18px;
+            transform-origin: right bottom;
+            transition: all .5s ease;
+        }
+        .tdt-cp-expander.off {
+            transform: scale(0, 0);
+            transition: all .5s ease;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+        }
+        .tdt-cp-expander {
+            padding: 10px 20px;
+            border: 1px solid #CE9F5A;
+            background-color: #2F4A84;
+            color: #FFFFFF;
+            max-width: 500px;
+            max-height: 300px;
+            border: none;
+            transition: all .5s ease;
+            cursor: pointer;
+            font-size: 18px;
+            border-radius: 10px;
+            transform-origin: right bottom;
+            text-align: center;
+        }
+        .tdt-cp-go a {
+            display: inline-block;
+            color: #c5202b;
+            padding: 4px 14px;
+            background-color: white;
+            border-radius: 10px;
+            font-weight: bold;
+            -webkit-box-shadow: 0px 0px 20px 4px rgba(0, 0, 0, 0.38);
+            -moz-box-shadow: 0px 0px 20px 4px rgba(0, 0, 0, 0.38);
+            box-shadow: 0px 0px 20px 4px rgba(0, 0, 0, 0.38);
+        }
+        .tdt-cp-close {
+            position: absolute;
+            top: 0px;
+            right: 12px;
+            background-image: url(images/close.png);
+            width: 23px;
+            height: 23px;
+            cursor: pointer;
+        }
+        .tdt-cp-go {
+            text-align: center;
+            margin-top: 15px;
+        }
+        /* POPUP */
+        .overllay {
+            visibility: hidden;
+            z-index: 99;
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            background: rgba(0, 0, 0, 0.9);
+        }
+        .popup-wrapper {
+            visibility: hidden;
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background: #fff;
+            padding: 0;
+            width: 100%;
+            margin: 0;
+        }
+        .navbar-top {
+            padding: 15px 0;
+            position: relative;
+        }
+        .navbar-top .back-btn {
+            left: 15px;
+        }
+        .navbar-top .close-btn {
+            right: 15px;
+        }
+        .navbar-top .btn-navbar {
+            position: absolute;
+            margin-top: -14px;
+            top: 50%;
+            padding: 0;
+            position: absolute;
+            background: none;
+            /* left: 0; */
+        }
+        .navbar-top .btn-navbar .fa::before {
+            font-size: 27px;
+            color: #fff;
+        }
+        .popup__top {
+            background: #c5202b;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 999;
+            width: 100%;
+        }
+        .tab-bar {
+            background: #c5202b;
+            display: none;
+        }
+        .tab-bar li {
+            list-style: none;
+            float: left;
+            width: 50%;
+            text-align: center;
+        }
+        .tab-bar li a {
+            padding: 15px 0;
+            color: #fff;
+            font-size: 15px;
+            font-weight: 700;
+            border-bottom: transparent;
+        }
+        .tab-bar li a.active {
+            color: #000;
+            background: #fff;
+        }
+        .popup-wrapper.map {
+            /*
    width:80%;
     margin-left: -40%;
     margin-right: -40%;
     top: 50px;
 	*/
-    }
-    
-    .road-map-wrapper #map {
-        padding: 0;
-		position:relative;
-    }
-	.road-map-wrapper .tab-content{
-		position:relative;
-	}
-	#map .toolbox__map{
-		position: absolute;
-    top: 0;
-    right: 0;
-	}
-	#map .toolbox__map #geoLocation{
-		    width: 35px;
-    height: 35px;
-	}
-	#map .toolbox__map #geoLocation .fa{
-		margin: 0;
-    padding: 0;
-    width: auto;
-	}
-    
-    .road-map-wrapper {
-        padding-top: 57px;
-    }
-    
-    .popup-container {
-        position: relative;
-    }
-    
-    .button-close-popup {
-        background-image: url(images/close.png);
-        width: 23px;
-        height: 23px;
-        cursor: pointer;
-        position: absolute;
-        top: -25px;
-        right: -25px;
-        font-size: 40px;
-        padding: 0;
-    }
-    
-    .add-road-wrapper {
-        padding: 30px;
-        visibility: hidden;
-    }
-.add-road-popup{
-    width: 768px;
-    top: 10%;
-    left: 50%;
-    margin-left: -384px;
-    bottom: initial;
-    height: auto;
-}
-.add-road-popup .navbar-top .btn-navbar .fa::before{
-    color: #000;
-}
-    
-    .login-popup {
-        visibility: hidden;
-    }
-    
-    .wp-social-login-widget {
-        text-align: center;
-    }
-    
-    .wp-social-login-connect-with {
-        text-align: center;
-        font-size: 16px;
-        margin-bottom: 5px;
-    }
-    
-    .wp-social-login-provider-list {
-        text-align: center;
-        margin-bottom: 15px;
-    }
-    /*
+        }
+        .road-map-wrapper #map {
+            padding: 0;
+            position: relative;
+        }
+        .road-map-wrapper .tab-content {
+            position: relative;
+        }
+        #map .toolbox__map {
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+        #map .toolbox__map #geoLocation {
+            width: 35px;
+            height: 35px;
+        }
+        #map .toolbox__map #geoLocation .fa {
+            margin: 0;
+            padding: 0;
+            width: auto;
+        }
+        .road-map-wrapper {
+            padding-top: 57px;
+        }
+        .popup-container {
+            position: relative;
+        }
+        .button-close-popup {
+            background-image: url(images/close.png);
+            width: 23px;
+            height: 23px;
+            cursor: pointer;
+            position: absolute;
+            top: -25px;
+            right: -25px;
+            font-size: 40px;
+            padding: 0;
+        }
+        .add-road-wrapper {
+            padding: 30px;
+            visibility: hidden;
+        }
+        .add-road-popup {
+            width: 768px;
+            top: 10%;
+            left: 50%;
+            margin-left: -384px;
+            bottom: initial;
+            height: auto;
+        }
+        .add-road-control-group-top .tip {
+            float: right;
+            background-color: #EAC62F;
+            padding: 5px 3px;
+            text-align: center;
+            border: 1px solid #d4d4d4;
+            -webkit-border-radius: .2em;
+            -moz-border-radius: .2em;
+            border-radius: .2em;
+            color: #00;
+        }
+        .add-road-popup .navbar-top .btn-navbar .fa::before {
+            color: #000;
+        }
+        .login-popup {
+            visibility: hidden;
+        }
+        .wp-social-login-widget {
+            text-align: center;
+        }
+        .wp-social-login-connect-with {
+            text-align: center;
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+        .wp-social-login-provider-list {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        /*
 * Customize the providers buttons
 */
-    
-    .wp-social-login-provider,
-    .wp-social-login-provider:hover {
-        display: inline-block;
-        height: 50px;
-        width: 140px;
-        margin: 5px;
-        color: transparent;
-        /* this will hide the providers names */
-    }
-    /*
+        .wp-social-login-provider,
+        .wp-social-login-provider:hover {
+            display: inline-block;
+            height: 50px;
+            width: 140px;
+            margin: 5px;
+            color: transparent;
+            /* this will hide the providers names */
+        }
+        /*
 * Set the providers buttons urls.
 *
 * Note: change these urls with yours
 */
-    
-    .wp-social-login-provider-facebook {
-        background-image: url("images/signin_with_facebook.jpg");
-    }
-    
-    .wp-social-login-provider-google {
-        background-image: url("images/signin_with_google.jpg");
-    }
-    
-    .glogin {
-        text-align: center;
-        display: block;
-    }
-    
-    .status-popup {
-        display: none;
-        padding: 30px;
-    }
-    
-    .status-popup {
-        padding: 30px;
-    }
-    
-    #map-holder {
-        height: 500px;
-    }
-    
-    .user-link {
-        position:absolute;
-		top:0;
-		right:0;
-    }
-    .road-info-wrapper{
-		padding:0 30px 30px;
-		right: 0;
-    height: 100%;
-    top: 0;
-    position: absolute;
-    background: #C5202B;
-    color: #fff;
-    border: 0;
-    width: 33.33333333%;
-	}
-    #road-info {
-    }
-    
-    .popup-wrapper.map #road-title {
-        margin: 0;
-        display: block;
-        color: #fff;
-        font-size: 18px;
-        line-height: 27px;
-        padding: 0 30px;
-        font-weight: 700;
-        text-align: center;
-    }
-    
-    .fa {
-        width: 32px;
-        font-size: 14px;
-        display: inline-block;
-        text-align: center;
-        margin-right: 10px;
-    }
-    
-    .road-social {
-        margin: 15px 0;
-    }
-    
-    .road-meta {
-        margin: 0;
-    }
-	.road-warming ul{
-		margin: 0;
-	}
-	.road-meta .road-element{
-		margin:10px 0;font-size: 14px;
-	}
-	.road-meta .road-element .road-node{
-		    font-weight: 500;
-	}
-    .road-warming ul li{
-		float:left;
-		width:50%;
-		list-style:none;
-	}
-	.road-warming ul li:before{
-		content: '✓';
-		    padding-right: 5px;
-	}
-	.road-meta .fa{
-		width:18px;
-		    width: auto;
-	}
-	.road-meta .road-author{
-	}
-    .tdt-footer {
-        padding: 30px 0 15px 0;
-        background: #2e2e2e;
-    }
-    
-    .tdt-footer #menu-footer-menu {}
-    
-    .tdt-footer a {
-        color: #fff;
-    }
-    
-    .tdt-footer #menu-footer-menu li {
-        list-style: none;
-        color: #fff;
-        float: left;
-        margin: 0 15px;
-    }
-    
-    .tdt-footer .copyright {
-        display: block;
-        text-align: center;
-        margin: 0 auto;
-    }
-    
-    .intro-draw {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        right: 0;
-        width: 100%;
-        background: rgba(0, 0, 0, 0.7);
-    }
-    
-    .introjs-tooltipReferenceLayer {
-        position: absolute;
-        z-index: 9;
-        background-color: transparent;
-        -webkit-transition: all .3s ease-out;
-        -moz-transition: all .3s ease-out;
-        -ms-transition: all .3s ease-out;
-        -o-transition: all .3s ease-out;
-        transition: all .3s ease-out;
-    }
-    
-    .introjs-helperNumberLayer {
-        font-size: 13px;
-        font-weight: bold;
-        color: white;
-        text-align: center;
-        text-shadow: 1px 1px 1px rgba(0, 0, 0, .3);
-        background: #ff3019;
-        background: -webkit-linear-gradient(top, #ff3019 0, #cf0404 100%);
-        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ff3019), color-stop(100%, #cf0404));
-        background: -moz-linear-gradient(top, #ff3019 0, #cf0404 100%);
-        background: -ms-linear-gradient(top, #ff3019 0, #cf0404 100%);
-        background: -o-linear-gradient(top, #ff3019 0, #cf0404 100%);
-        background: linear-gradient(to bottom, #ff3019 0, #cf0404 100%);
-        width: 30px;
-        height: 30px;
-        /* margin: 0; */
-        line-height: 30px;
-        border: 3px solid white;
-        border-radius: 50%;
-        text-align: center;
-        filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#ff3019', endColorstr='#cf0404', GradientType=0);
-        filter: progid: DXImageTransform.Microsoft.Shadow(direction=135, strength=2, color=ff0000);
-        box-shadow: 0 2px 5px rgba(0, 0, 0, .4);
-        padding: 0;
-        display: block;
-        margin-left: -15px;
-        margin-top: -15px;
-    }
-    
-    .introjs-tooltip {
-        position: absolute;
-        padding: 10px;
-        background-color: white;
-        min-width: 200px;
-        max-width: 300px;
-        border-radius: 3px;
-        box-shadow: 0 1px 10px rgba(0, 0, 0, .4);
-        -webkit-transition: opacity .1s ease-out;
-        -moz-transition: opacity .1s ease-out;
-        -ms-transition: opacity .1s ease-out;
-        -o-transition: opacity .1s ease-out;
-        transition: opacity .1s ease-out;
-    }
-    
-    .introjs-tooltipbuttons {
-        text-align: right;
-        white-space: nowrap;
-    }
-    
-    .introjs-startbutton {
-        -webkit-border-radius: 0 .2em .2em 0;
-        -moz-border-radius: 0 .2em .2em 0;
-        border-radius: 0 .2em .2em 0;
-    }
-    
-    .introjs-button {
-        position: relative;
-        overflow: visible;
-        display: inline-block;
-        padding: .3em .8em;
-        border: 1px solid #d4d4d4;
-        margin: 0;
-        text-decoration: none;
-        text-shadow: 1px 1px 0 #fff;
-        font: 11px/normal sans-serif;
-        color: #333;
-        white-space: nowrap;
-        cursor: pointer;
-        outline: 0;
-        background-color: #ececec;
-        background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#f4f4f4), to(#ececec));
-        background-image: -moz-linear-gradient(#f4f4f4, #ececec);
-        background-image: -o-linear-gradient(#f4f4f4, #ececec);
-        background-image: linear-gradient(#f4f4f4, #ececec);
-        -webkit-background-clip: padding;
-        -moz-background-clip: padding;
-        -o-background-clip: padding-box;
-        -webkit-border-radius: .2em;
-        -moz-border-radius: .2em;
-        border-radius: .2em;
-        zoom: 1;
-        margin-top: 10px;
-    }
-    /* page */
-    
-    .entry-title {
-        color: #ff4d55;
-        -webkit-hyphens: none;
-        -moz-hyphens: none;
-        hyphens: none;
-        margin-left: -0.07em;
-        margin-top: 0;
-        -ms-hyphens: none;
-    }
-    
-    @media (max-width: 991px) {}
-    
-    @media (max-width: 767px) {
-        .popup-wrapper,
-        .popup-wrapper.map {}
-        #road-info {}
-        .overllay {
-            position: absolute;
+        .wp-social-login-provider-facebook {
+            background-image: url("images/signin_with_facebook.jpg");
         }
-        .popup-wrapper {
-            position: absolute;
+        .wp-social-login-provider-google {
+            background-image: url("images/signin_with_google.jpg");
         }
-        .tdt-header-title {
+        .glogin {
             text-align: center;
-        }
-        .tab-bar {
             display: block;
         }
-        .popup-wrapper.map #road-title{
-            font-size: 15px;
+        .status-popup {
+            display: none;
+            padding: 30px;
         }
-        .popup-wrapper .fa{
-            width:25px;
+        .status-popup {
+            padding: 30px;
         }
-        .navbar-top .back-btn{
+        #map-holder {
+            height: 500px;
+        }
+        .user-link {
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+        .road-info-wrapper {
+            padding: 0 30px 30px;
+            right: 0;
+            height: 100%;
+            top: 0;
+            position: absolute;
+            background: #fff;
+            color: #484848;
+            border: 0;
+            width: 33.33333333%;
+        }
+        #road-info {}
+        .popup-wrapper.map #road-title {
+            margin: 0;
+            display: block;
+            color: #fff;
+            font-size: 18px;
+            line-height: 27px;
+            padding: 0 30px;
+            font-weight: 700;
+            text-align: center;
+        }
+        .fa {
+            width: 32px;
+            font-size: 14px;
+            display: inline-block;
+            text-align: center;
+            margin-right: 10px;
+        }
+        .road-social {
+            margin: 15px 0;
+        }
+        .road-meta {
+            margin: 0;
+        }
+        .road-warming ul {
+            margin: 0;
+        }
+        .road-meta .road-element {
+            margin: 10px 0;
+            font-size: 14px;
+        }
+        .road-meta .road-element .road-node {
+            font-weight: 500;
+        }
+        .road-warming ul li {
+            float: left;
+            width: 50%;
+            list-style: none;
+        }
+        .road-warming ul li:before {
+            content: '✓';
+            padding-right: 5px;
+        }
+        .road-meta .fa {
+            width: 18px;
+            width: auto;
+        }
+        .road-meta .road-author {}
+        .tdt-footer {
+            padding: 30px 0 15px 0;
+            background: #2e2e2e;
+        }
+        .tdt-footer #menu-footer-menu {}
+        .tdt-footer a {
+            color: #fff;
+        }
+        .tdt-footer #menu-footer-menu li {
+            list-style: none;
+            color: #fff;
+            float: left;
+            margin: 0 15px;
+        }
+        .tdt-footer .copyright {
+            display: block;
+            text-align: center;
+            margin: 0 auto;
+        }
+        .intro-draw {
+            display: none;
+            position: fixed;
+            top: 0;
             left: 0;
+            bottom: 0;
+            right: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.7);
         }
-        .navbar-top .close-btn{
-            right: 5px;
+        .introjs-tooltipReferenceLayer {
+            position: absolute;
+            z-index: 9;
+            background-color: transparent;
+            -webkit-transition: all .3s ease-out;
+            -moz-transition: all .3s ease-out;
+            -ms-transition: all .3s ease-out;
+            -o-transition: all .3s ease-out;
+            transition: all .3s ease-out;
         }
-        .road-map-wrapper{
-            margin-top:112px;
+        .introjs-helperNumberLayer {
+            font-size: 13px;
+            font-weight: bold;
+            color: white;
+            text-align: center;
+            text-shadow: 1px 1px 1px rgba(0, 0, 0, .3);
+            background: #ff3019;
+            background: -webkit-linear-gradient(top, #ff3019 0, #cf0404 100%);
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ff3019), color-stop(100%, #cf0404));
+            background: -moz-linear-gradient(top, #ff3019 0, #cf0404 100%);
+            background: -ms-linear-gradient(top, #ff3019 0, #cf0404 100%);
+            background: -o-linear-gradient(top, #ff3019 0, #cf0404 100%);
+            background: linear-gradient(to bottom, #ff3019 0, #cf0404 100%);
+            width: 30px;
+            height: 30px;
+            /* margin: 0; */
+            line-height: 30px;
+            border: 3px solid white;
+            border-radius: 50%;
+            text-align: center;
+            filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#ff3019', endColorstr='#cf0404', GradientType=0);
+            filter: progid: DXImageTransform.Microsoft.Shadow(direction=135, strength=2, color=ff0000);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, .4);
+            padding: 0;
+            display: block;
+            margin-left: -15px;
+            margin-top: -15px;
+        }
+        .introjs-tooltip {
+            position: absolute;
+            padding: 10px;
+            background-color: white;
+            min-width: 200px;
+            max-width: 300px;
+            border-radius: 3px;
+            box-shadow: 0 1px 10px rgba(0, 0, 0, .4);
+            -webkit-transition: opacity .1s ease-out;
+            -moz-transition: opacity .1s ease-out;
+            -ms-transition: opacity .1s ease-out;
+            -o-transition: opacity .1s ease-out;
+            transition: opacity .1s ease-out;
+        }
+        .introjs-tooltipbuttons {
+            text-align: right;
+            white-space: nowrap;
+        }
+        .introjs-startbutton {
+            -webkit-border-radius: 0 .2em .2em 0;
+            -moz-border-radius: 0 .2em .2em 0;
+            border-radius: 0 .2em .2em 0;
+        }
+        .introjs-button {
+            position: relative;
+            overflow: visible;
+            display: inline-block;
+            padding: .3em .8em;
+            border: 1px solid #d4d4d4;
+            margin: 0;
+            text-decoration: none;
+            text-shadow: 1px 1px 0 #fff;
+            font: 11px/normal sans-serif;
+            color: #333;
+            white-space: nowrap;
+            cursor: pointer;
+            outline: 0;
+            background-color: #ececec;
+            background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#f4f4f4), to(#ececec));
+            background-image: -moz-linear-gradient(#f4f4f4, #ececec);
+            background-image: -o-linear-gradient(#f4f4f4, #ececec);
+            background-image: linear-gradient(#f4f4f4, #ececec);
+            -webkit-background-clip: padding;
+            -moz-background-clip: padding;
+            -o-background-clip: padding-box;
+            -webkit-border-radius: .2em;
+            -moz-border-radius: .2em;
+            border-radius: .2em;
+            zoom: 1;
+            margin-top: 10px;
+        }
+        /* page */
+        .entry-title {
+            color: #ff4d55;
+            -webkit-hyphens: none;
+            -moz-hyphens: none;
+            hyphens: none;
+            margin-left: -0.07em;
+            margin-top: 0;
+            -ms-hyphens: none;
+        }
+        @media (max-width: 991px) {}
+        @media (max-width: 767px) {
+            .popup-wrapper,
+            .popup-wrapper.map {}
+            #road-info {}
+            .overllay {
+                position: absolute;
+            }
+            .popup-wrapper {
+                position: absolute;
+            }
+            .tdt-header-title {
+                text-align: center;
+            }
+            .tab-bar {
+                display: block;
+            }
+            .popup-wrapper.map #road-title {
+                font-size: 15px;
+            }
+            .popup-wrapper .fa {
+                width: 25px;
+            }
+            .navbar-top .back-btn {
+                left: 0;
+            }
+            .navbar-top .close-btn {
+                right: 5px;
+            }
+            .road-map-wrapper {
+                margin-top: 112px;
                 padding-top: 0;
+            }
         }
-    }

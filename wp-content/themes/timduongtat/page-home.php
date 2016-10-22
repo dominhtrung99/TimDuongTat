@@ -1,15 +1,17 @@
 <?php 
 /*Template Name: Home Page*/
 get_header(); ?>
+<!--
 <div class="menu-road">
 	<div class="col-md-4">
-		<a href="http://timduongtat.com/"><i class="fa fa-road" aria-hidden="true"></i> Đường tắt mới chia sẻ</a>
+		<a href="https://timduongtat.com/"><i class="fa fa-road" aria-hidden="true"></i> Đường tắt mới chia sẻ</a>
 	</div>
 	<div class="col-md-4">
-		<a href="http://timduongtat.com/duong-tat-xet-duyet/"><i class="fa fa-road" aria-hidden="true"></i> Đường tắt chờ xét duyệt</a>
+		<a href="https://timduongtat.com/duong-tat-xet-duyet/"><i class="fa fa-road" aria-hidden="true"></i> Đường tắt chờ xét duyệt</a>
 	</div>
 	<div class="clear clearfix"></div>
 </div>
+-->
 <div class="clear clearfix"></div>
 <div class="row">
     <div class="card-listing">

@@ -38,6 +38,8 @@ jQuery(function($) {
     });
     
     $(document).on( "click", ".tdt-popup", function(e) {
+        e.preventDefault(); // now it'll work
+
 		 if($(window).width() >= 768){
 			$('body').css('overflow', 'hidden');
 		}
@@ -45,7 +47,7 @@ jQuery(function($) {
 		resetMap();		
 		
         var id      =   e.target.attributes.getNamedItem('data-id').value;
-        history.pushState(null, event.target.textContent, roadData[id].url);
+        history.pushState(null, e.target.textContent, roadData[id].url);
         
 		setupMapData(id);
         return false;
@@ -116,7 +118,7 @@ jQuery(function($) {
     }
 	
     function refreshDataFromGeoJson(geoJsonInput) {
-		console.log(map.data.getStyle());
+        console.log(map.data.getStyle());
       var newData = new google.maps.Data({
         map: map,
         style: map.data.getStyle()
@@ -304,57 +306,59 @@ jQuery(function($) {
 	}
 	
 	function setupMapData(id) {
-		var geoJson =   roadData[id].geoJson;
-        //setup map
-        refreshDataFromGeoJson(geoJson);
-		if(geoJson !== null && geoJson.features !== undefined) {
-			setMapCenterByBound(geoJson.features[0].geometry.coordinates);
-			var coordinates	=	geoJson.features[0].geometry.coordinates;
-			createTwoArray(coordinates);
-			
-			//create start market and end marker 
-			
-			var start		=	{lat: coordinates[0][1], lng: coordinates[0][0]};
-			var end			=	{lat: coordinates[coordinates.length - 1][1], lng: coordinates[coordinates.length - 1][0]};
-			addMarket(start);
-			addMarket(end);
-		}
-		
-         //setup info
-        //$('#road-info .road-time').html(roadData[id].time + " phút");
-        if(roadData[id].title !== undefined) $('#road-title').html(roadData[id].title);
-        if(roadData[id].note !== undefined)  $('#road-note').html(roadData[id].note);       
-		if(roadData[id].warming !== undefined) $('.road-warming').html(roadData[id].warming);
-        if(roadData[id].author !== undefined) $('#road-info .road-author').html("Tay lái " + roadData[id].author + ' đóng góp');
-        //createLikeButton(roadData[id].url);
-        //createComment(roadData[id].url);
-        //$('.road-like, .road-comment').show();
-		
-		
-		 // Define the symbol, using one of the predefined paths ('CIRCLE')
-        // supplied by the Google Maps JavaScript API.
-        var lineSymbol = {
-          path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW,
-          scale: 4,
-          strokeColor: '#ED3A3A',
-		  zIndex: 999
-        };
+        if(roadData[id] !== undefined && roadData[id].geoJson !==  undefined) {
+            var geoJson =   roadData[id].geoJson;
+            //setup map
+            refreshDataFromGeoJson(geoJson);
+            if(geoJson !== null && geoJson.features !== undefined) {
+                setMapCenterByBound(geoJson.features[0].geometry.coordinates);
+                var coordinates	=	geoJson.features[0].geometry.coordinates;
+                createTwoArray(coordinates);
 
-		var myCoordinates 	=	createCoordinates(coordinates);
-		
-        line = new google.maps.Polyline({
-          path: myCoordinates,
-          icons: [{
-            icon: lineSymbol,
-            offset: '100%'
-          }],
-          map: map
-        });
+                //create start market and end marker 
 
-        animateCircle(line);
-		//end CIRCLE
-		
-        $(".overllay, .popup-wrapper, .road-map-wrapper").css("visibility", "visible");
+                var start		=	{lat: coordinates[0][1], lng: coordinates[0][0]};
+                var end			=	{lat: coordinates[coordinates.length - 1][1], lng: coordinates[coordinates.length - 1][0]};
+                addMarket(start);
+                addMarket(end);
+            }
+
+             //setup info
+            //$('#road-info .road-time').html(roadData[id].time + " phút");
+            if(roadData[id].title !== undefined) $('#road-title').html(roadData[id].title);
+            if(roadData[id].note !== undefined)  $('#road-note').html(roadData[id].note);       
+            if(roadData[id].warming !== undefined) $('.road-warming').html(roadData[id].warming);
+            if(roadData[id].author !== undefined) $('#road-info .road-author').html("Tay lái " + roadData[id].author + ' đóng góp');
+            //createLikeButton(roadData[id].url);
+            //createComment(roadData[id].url);
+            //$('.road-like, .road-comment').show();
+
+
+             // Define the symbol, using one of the predefined paths ('CIRCLE')
+            // supplied by the Google Maps JavaScript API.
+            var lineSymbol = {
+              path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW,
+              scale: 4,
+              strokeColor: '#ED3A3A',
+              zIndex: 999
+            };
+
+            var myCoordinates 	=	createCoordinates(coordinates);
+
+            line = new google.maps.Polyline({
+              path: myCoordinates,
+              icons: [{
+                icon: lineSymbol,
+                offset: '100%'
+              }],
+              map: map
+            });
+
+            animateCircle(line);
+            //end CIRCLE
+
+            $(".overllay, .popup-wrapper, .road-map-wrapper").css("visibility", "visible");
+        }
 	}
 });
 

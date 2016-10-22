@@ -8,8 +8,12 @@ get_header();?>
     </style>
     <script src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/jquery.form.js"></script>
     <div class="row">
+        <div class="col-md-12 add-road-control-group-top">
+            <button id="guide-add-road-button">Hướng dẫn</button>
+            <button class="draw-again">Vẽ lại đường đi</button>
+            <p class="tip"><i class="fa fa-info-circle" aria-hidden="true"></i>Double Click để vẽ xong</p>
+        </div>
         <div class="col-md-12">
-			<button id="guide-add-road-button">Hướng dẫn</button><button class="draw-again">Vẽ lại đường đi</button>
             <div id="map-holder"></div>
         </div>
     </div>
@@ -63,24 +67,14 @@ get_header();?>
                                 </div>
                                 <div class="form-group">
 								<div><strong>Mức độ an toàn</strong></div>
-                                        <div class="col-md-6">
-											<input type="checkbox" name="issafe[]" value="1">An toàn cho mọi người
-										</div>
-										<div class="col-md-6">
-											<input type="checkbox" name="issafe[]" value="2">Buổi tối không có đèn
-										</div>
-                                        <div class="col-md-6">
-											<input type="checkbox" name="issafe[]" value="3">Đường vắng vẻ, ít người qua lại<br>
-										</div>
-                                       <div class="col-md-6">
-											<input type="checkbox" name="issafe[]" value="3">Dễ bị ngập<br>
-										</div>
-                                       <div class="col-md-6">
-											<input type="checkbox" name="issafe[]" value="3">Đường xấu, nhiều chỗ lởm chởm<br>
-										</div>
-                                       <div class="col-md-6">
-											<input type="checkbox" name="issafe[]" value="3">Giao nhau với đường tàu lửa<br>
-										</div>
+                                   <?php 
+                                    $field = wpcf_admin_fields_get_field('issafe');
+                                    foreach($field['data']['options'] as $key => $option) { ?>
+                                         <div class="col-md-6">
+											<input type="checkbox" name="issafe[]" value="<?php echo $option['set_value']; ?>"><?php echo $option['title']; ?>
+										</div> 
+                                    <?php }
+                                  ?>
                                 </div>
                                 <div class="form-group">
                                     <textarea  class = "form-control" id="road-note" placeholder = "Ghi chú..." name = "roadNote"></textarea>
@@ -194,52 +188,18 @@ function test(){
             }
             function showResponse(response, statusText, xhr, $form) {
                 console.log(response);
-                console.log(response);
-                response    =   JSON.parse(response);
-                console.log(response);
+                //console.log(response);
                 if(response.status  == 0) {
                     openStatusPopup(response.message);
                 } else {
                     openStatusPopup(response.message);
-                    setTimeout(function(){ 
-                      window.location.href = '<?php echo get_site_option('siteurl'); ?>';
-                   }, 5000);
+                   // setTimeout(function(){ 
+                     // window.location.href = '<?php echo get_site_option('siteurl'); ?>';
+                  // }, 5000);
                 }
                 return true;
             }
-/*
-            $("#addRoadForm").submit(function () {
-                var geoJson = geoData.replace(/ /g, "");
-                var formData = $("#addRoadForm").serialize() + '&geoJson=' + geoJson;
-                console.log(formData);
-                $.ajax({
-                    type: 'POST',
-                    url: '<?php echo admin_url('admin-ajax.php'); ?>',
-                    dataType: "json",
-                    data: {
-                        'action': 'addRoadAjax',
-                        'formData': formData
-                    },
-                    success: function (response) {
-                        console.log(response);
-                        if(response.status  == 0) {
-                            openStatusPopup(response.message);
-                        } else {
-                            openStatusPopup(response.message);
-                            setTimeout(function(){ 
-                               window.location.href = '<?php echo get_site_option('siteurl'); ?>';
-                           }, 4000);
-                        }
-                        return false;
-                    },
-                    error: function (errorThrown) {
-                        console.log(errorThrown);
-                    }
-                });
-                return false;
-            });
-            */
-			
+            
 			function refreshData() {
 			  var newData = new google.maps.Data({
 				map: map,
@@ -272,9 +232,9 @@ function test(){
 			
 			function closePopup() {
 				refreshData();
-				$(".status-popup, .add-road-wrapper, .login-popup, .overllay, .popup-wrapper").css("visibility", "hidden");
-                
-                $(".status-popup").show();
+                $(".status-popup, .login-popup, .add-road-wrapper, .overllay, .popup-wrapper").css("visibility", "hidden");
+				
+                //$(".status-popup").show();
 			}
             
             //**** UPLOAD IMAGE *******//
@@ -338,7 +298,7 @@ function test(){
 	<div class="introjs-tooltipReferenceLayer">
 		<div style="position:relative">
 			<span class="introjs-helperNumberLayer">1</span>
-			<div class="introjs-tooltip"><div class="introjs-tooltiptext">Chọn biểu tượng <img src="http://timduongtat.com/wp-content/uploads/2016/09/step-button.jpg" /> để bắt đầu vẽ đường tắt</div>
+			<div class="introjs-tooltip"><div class="introjs-tooltiptext">Chọn biểu tượng <img src="https://timduongtat.com/wp-content/uploads/2016/09/step-button.jpg" /> để bắt đầu vẽ đường tắt</div>
 				<div class="introjs-tooltipbuttons"><a href="javascript:void(0);" onclick="hideIntro()" class="introjs-button introjs-startbutton">Bắt đầu →</a></div>
 			</div>
 			

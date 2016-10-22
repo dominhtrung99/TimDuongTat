@@ -34,15 +34,20 @@
         <div class="container">
            <div class="row">
            <div class="col-md-12">
-            <div class="tdt-header-container">
-                    
+            <div class="tdt-header-container">                    
                         <div class="tdt-header-title ">
 							<div class="logo">
-								<h1><a href="<?php echo get_site_option('siteurl'); ?>" class="tdt-mute flex middle-xs">
-								   <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/logo.png" alt="tìm đường tắt" />
-								</a></h1>
-								<h2 class="tdt-site-des">Chia sẻ các đường tắt tránh kẹt xe ở Sài Gòn</h2>
+							    <div class="col-md-4 col-xs-12">
+							       <a href="<?php echo get_site_option('siteurl'); ?>" class="tdt-mute flex middle-xs">
+							           <img class="logo-img" src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/logo.png" alt="tìm đường tắt" />
+								   </a>
+							    </div>
+							    <div class="col-md-8 col-xs-12">
+							        <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/logo-2.png" alt="tìm đường tắt" />
+							    </div>
+								<div class="clear clearfix"></div>
 							</div>
+                           <h2 class="tdt-site-des">Chia sẻ các đường tắt tránh kẹt xe ở Sài Gòn</h2>
                         </div>
                         
                            <div class="user-link">

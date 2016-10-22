@@ -157,30 +157,27 @@ function getAllRoad($confirm = 1) {
     query_posts( $args );
     
     while ( have_posts() ) : the_post();
-	if ( has_post_thumbnail() ) {
-		$thumb_id = get_post_thumbnail_id();
-		$thumb_url = wp_get_attachment_image_src($thumb_id,'thumb_258x194', true);
-		$image	=	$thumb_url[0];
-	} else {
-		$image	=	"http://timduongtat.com/wp-content/themes/timduongtat/images/nophoto.png";
-	}
-	
-	$warming	=	'<ul><li>'. types_render_field('issafe', array('separator'=>'</li><li>')) .'</li></ul>';
-	//print_r(($custom_fields['wpcf-issafe']));
-	
-	
-	
-   $custom_fields = get_post_custom($post->ID);
-   $data[$post->ID] =  array(
-		'id'	=>	$post->ID,
-		'title' =>  get_the_title(),
-		'note'  =>  $post->post_content,
-		'url'   =>  get_permalink(),
-		'geoJson'   =>  json_decode($custom_fields['wpcf-geojson'][0]),
-		'image'		=>	$image,
-		'author'    =>  get_the_author(),
-		'warming'	=>	$warming
-	);
+        if ( has_post_thumbnail() ) {
+            $thumb_id = get_post_thumbnail_id();
+            $thumb_url = wp_get_attachment_image_src($thumb_id,'thumb_258x194', true);
+            $image	=	$thumb_url[0];
+        } else {
+            $image	=	"https://timduongtat.com/wp-content/themes/timduongtat/images/nophoto.png";
+        }
+
+        $warming	=	'<ul><li>'. types_render_field('issafe', array('separator'=>'</li><li>')) .'</li></ul>';
+        //print_r(($custom_fields['wpcf-issafe']));
+       $custom_fields = get_post_custom($post->ID);
+       $data[$post->ID] =  array(
+            'id'	=>	$post->ID,
+            'title' =>  get_the_title(),
+            'note'  =>  $post->post_content,
+            'url'   =>  get_permalink(),
+            'geoJson'   =>  json_decode($custom_fields['wpcf-geojson'][0]),
+            'image'		=>	$image,
+            'author'    =>  get_the_author(),
+            'warming'	=>	$warming
+        );
     
     endwhile;
     wp_reset_query();

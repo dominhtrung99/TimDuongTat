@@ -1,7 +1,7 @@
 <?php
 /*Template Name: Add road Ajax Page*/ ?>
 <?php
-function addRoad($title = "", $note = "", $author = 1, $geoJson = ""){
+function addRoad($title = "", $note = "", $author = 1, $geoJson = "", $isSafe = ""){
     $my_post = array(
 			'post_type'     => 'road',
 			'post_title'    => $title,
@@ -17,8 +17,19 @@ function addRoad($title = "", $note = "", $author = 1, $geoJson = ""){
            // update_post_meta($post_id, 'wpcf-time', $time);
             update_post_meta($post_id, 'wpcf-geojson', $geoJson);
 			update_post_meta($post_id, 'wpcf-confirm', 0);
-            update_post_meta($post_id, 'wpcf-issafe', [1,2]);
             
+           $field = wpcf_admin_fields_get_field('issafe');
+            $api_result = $isSafe;
+            
+            if (isset($field['data']['options'])){
+                $res = array();
+                foreach ($field['data']['options'] as $key => $option){
+                    if (in_array($option['set_value'], $api_result)){
+                        $res[$key] = $option['set_value'];
+                    }
+                }   
+                    update_post_meta( $post_id, 'wpcf-issafe' , $res );
+            }
             return $post_id;
         }
         else{
@@ -31,6 +42,7 @@ function addRoad($title = "", $note = "", $author = 1, $geoJson = ""){
 if($_POST['action'] == 'addRoadAjax') {
     $title      =   strip_tags($_POST['roadTitle']);
     $note       =   strip_tags($_POST['roadNote']);
+    $isSafe    =   $_POST['issafe'];
    // $time       =   strip_tags($_POST['roadTime']);
 
     if ( is_user_logged_in() ) {
@@ -42,7 +54,7 @@ if($_POST['action'] == 'addRoadAjax') {
     }            
     $geoJson   =   strip_tags($_POST['geoJson']);          
     
-    $postId =   addRoad($title, $note, $authorId, $geoJson);  
+    $postId =   addRoad($title, $note, $authorId, $geoJson, $isSafe);  
     
     if (!empty($_FILES["fileUpload"])) {
         $myFile = $_FILES["fileUpload"];
@@ -66,6 +78,7 @@ if($_POST['action'] == 'addRoadAjax') {
         echo  json_encode(['status' => 0, 'message' => 'Lỗi lưu không thành công!']);
         die;
     } else {
+        $link   =   get_post_permalink($postId);
         echo  json_encode(['status' => 1, 'message' => 'Thêm thành công! Đường tắt của bạn sẽ được kiểm duyệt!']);
         die;
     }
